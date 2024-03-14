@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+<h1>{{ client_info.client_name }}</h1>
+<div>
+    <img src="{{ client_info.profile_image }}" alt="{{ client_info.client_name }}">
+</div>
+<p>{{ client_info.client_name }}</p>
+<p>{{ client_info.client_bio }}</p>
+<button><a href="{% url 'edit_profile' client_info.pk %}">Edit</a></button>
+<button><a href="{% url 'delete_profile' client_info.pk %}">Delete</a></button>
+
+
+<a href="{% url 'pets:client_profile' %}">Back to Homepage</a>
+</body>
+</html>

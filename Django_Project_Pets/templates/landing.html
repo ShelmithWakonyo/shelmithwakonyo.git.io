@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: firebrick;
+        font-family: "Old English Text MT";
+    }
+     img{
+        border-radius: 50%;
+        display: block;
+        margin-left:auto ;
+        margin-right: auto;
+        width: 50%;
+    }
+    button{
+        background-color: darkviolet;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline;        
+    }
+</style>
+<body>
+{% for p in profile %}
+        <h1 style="text-align: center;animation-play-state:paused;font-family: 'Times New Roman',fantasy ">{{ p.client_name }}</h1>
+    <a href="{% url 'pets:client_details' p.pk %}">
+        <img src="{{ p.profile_image.url }}" alt=""></a>
+
+    <p>{{ p.client_bio }}</p>
+    <button><a href="{% url 'pets:edit_profile' p.pk %}">Edit</a></button>
+    <button><a href="{% url 'pets:delete_profile' p.pk %}">Delete</a></button>
+    
+{% endfor %}
+<a style="background-color: gold" href="{% url 'pets:product_list' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+{% load socialaccount %}
+{% block content %}
+    <h1>Google Login</h1>
+    <button>
+{#            <a href="{% provider_login_url 'google' %}">Login with Google</a>#}
+    <a href="{% provider_login_url 'google' %}?next=/product_list/">Login with Google</a>
+    </button>
+    {% if user is authenticated %}
+        <h3>{{ user.email }} has logged in successfully </h3>
+        <p>Proceed to fashionnista <a href="{% url 'pets:product_list' %}"></a></p>
+        <a href="#">Logout</a>
+    {% endif %}
+{% endblock %}
+</body>
+</html>
